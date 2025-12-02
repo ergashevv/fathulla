@@ -147,14 +147,11 @@ const CategoryDetail = () => {
         {/* Main Content Section */}
         <div className="category-sections">
           <section className="category-info-section">
-            <br />
-            <br />
-
             {/* About-style Section */}
-            <div className="container my-5">
+            <div className="category-about-section container">
               <div className="row align-items-center">
                 <div className="col-lg-6">
-                  <h1 className="category-title mb-4">
+                  <h1 className="category-title">
                     {selectedCategory?.title || 'СУХОЕ МОЛОКО/СЫВОРОТКА'}
                   </h1>
                   <p className="category-description">
@@ -167,7 +164,7 @@ const CategoryDetail = () => {
                     culpa qui officia deserunt mollit anim id est laborum.
                   </p>
                   {selectedCategory?.description && (
-                    <p className="category-description mt-3">
+                    <p className="category-description">
                       {selectedCategory.description}
                     </p>
                   )}
@@ -185,15 +182,11 @@ const CategoryDetail = () => {
             </div>
 
             {/* Product Cards Section */}
-            <div className="container my-5">
+            <div className="category-products-section container">
               <div className="product__list">
                 <CatalogProductCard data={filteredProducts} />
               </div>
             </div>
-
-            <br />
-            <br />
-            <br />
 
             {/* Our Partners Section */}
             <div className="category-partners">
@@ -202,7 +195,6 @@ const CategoryDetail = () => {
                   НАШИ ПАРТНЕРЫ
                 </span>
               </h3>
-              <br />
               <div className="partners-container">
                 <div className="partners--grid2">
                   {partnerLogos.map((partner) => (
