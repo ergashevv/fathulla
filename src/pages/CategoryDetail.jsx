@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import Navbar from '../components/navbar/Navbar';
 import Application from '../components/application/Application';
 import Footer from '../components/footer/Footer';
@@ -64,8 +64,6 @@ const CategoryDetail = () => {
   const flickityOptions = {
     initialIndex: 0,
     wrapAround: true,
-    autoPlay: 4000,
-    pauseAutoPlayOnHover: true,
     pageDots: true,
     prevNextButtons: true,
     selectedAttraction: 0.025,
@@ -102,6 +100,89 @@ const CategoryDetail = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  // Auto-play carousel
+  useEffect(() => {
+    if (loading) return;
+
+    let autoplayInterval;
+    let isHovered = false;
+    let timeoutId;
+
+    const startAutoplay = () => {
+      const carouselElement = document.querySelector('.category-carousel');
+      if (!carouselElement) return;
+
+      const flickityInstance = carouselElement.flickity;
+      if (!flickityInstance) return;
+
+      if (isHovered) return;
+
+      autoplayInterval = setInterval(() => {
+        const currentElement = document.querySelector('.category-carousel');
+        const currentFlickity = currentElement?.flickity;
+        if (currentFlickity && !isHovered) {
+          currentFlickity.next();
+        }
+      }, 4000);
+    };
+
+    const stopAutoplay = () => {
+      if (autoplayInterval) {
+        clearInterval(autoplayInterval);
+        autoplayInterval = null;
+      }
+    };
+
+    const initializeAutoplay = () => {
+      const carouselElement = document.querySelector('.category-carousel');
+      if (!carouselElement) {
+        timeoutId = setTimeout(initializeAutoplay, 300);
+        return;
+      }
+
+      const flickityInstance = carouselElement.flickity;
+      if (!flickityInstance) {
+        timeoutId = setTimeout(initializeAutoplay, 300);
+        return;
+      }
+
+      const handleMouseEnter = () => {
+        isHovered = true;
+        stopAutoplay();
+      };
+
+      const handleMouseLeave = () => {
+        isHovered = false;
+        stopAutoplay();
+        startAutoplay();
+      };
+
+      carouselElement.addEventListener('mouseenter', handleMouseEnter);
+      carouselElement.addEventListener('mouseleave', handleMouseLeave);
+
+      // Start autoplay after initialization
+      setTimeout(() => {
+        startAutoplay();
+      }, 1500);
+
+      return () => {
+        stopAutoplay();
+        if (carouselElement) {
+          carouselElement.removeEventListener('mouseenter', handleMouseEnter);
+          carouselElement.removeEventListener('mouseleave', handleMouseLeave);
+        }
+      };
+    };
+
+    const cleanupFn = initializeAutoplay();
+
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      stopAutoplay();
+      if (cleanupFn) cleanupFn();
+    };
+  }, [loading]);
 
   const selectedCategory = useMemo(() => {
     return categoriesData.find(item => item.id === categoryId);
@@ -153,7 +234,7 @@ const CategoryDetail = () => {
               <div className="row align-items-center">
                 <div className="col-lg-6">
                   <h1 className="category-title">
-                    {selectedCategory?.title || 'СУХОЕ МОЛОКО/СЫВОРОТКА'}
+                    Rimado
                   </h1>
                   <p className="category-description">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
