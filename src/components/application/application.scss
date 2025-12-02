@@ -1,0 +1,119 @@
+.application {
+  .be-partners {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 80px;
+
+    .subtitle {
+      color: #fff;
+      font-family: Montserrat;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      letter-spacing: -2.42px;
+
+      @media only screen and (max-width: 500px) {
+        font-size: 13.46px;
+        letter-spacing: -0.7px;
+        text-align: center;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .main-text {
+    color: #fff;
+    font-family: Montserrat;
+    font-size: 175px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -9.615px;
+    text-align: center;
+    padding-bottom: 80px;
+    margin-bottom: 0;
+
+    @media only screen and (max-width: 500px) {
+      font-size: 49.18px;
+      letter-spacing: -0.7px;
+      padding-bottom: 30px;
+    }
+  }
+
+  .open-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    max-width: 630px;
+    height: 122px;
+    color: #fff;
+    font-family: Montserrat;
+    font-size: 43.2px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -2px;
+    transition: all ease-in-out 0.2s;
+    background: linear-gradient(
+      0deg,
+      rgba(213, 162, 81, 1) 0%,
+      rgb(47, 37, 18) 97%
+    );
+    border-radius: 60px;
+    border: none;
+
+    &:hover {
+      background: linear-gradient(
+          349deg,
+          rgba(163, 163, 163, 1) 0%,
+          rgba(77, 75, 75, 1) 97%
+        )
+        0 120px;
+    }
+
+    @media only screen and (max-width: 500px) {
+      font-size: 16.11px;
+      letter-spacing: -0.7px;
+      width: 237px;
+      height: 73px;
+      padding: 16px 0 0 0;
+      display: flex;
+      align-items: center;
+      margin: 0 auto;
+    }
+
+    img {
+      margin-left: 10px;
+      width: 97px;
+      height: 91px;
+      background-color: #000;
+      border-radius: 50%;
+      padding: 10px;
+
+      @media only screen and (max-width: 500px) {
+        width: 36px;
+        height: 34px;
+        padding: 5px;
+      }
+    }
+  }
+
+  .button-lg {
+    @media only screen and (max-width: 500px) {
+      display: none;
+    }
+  }
+
+  .button-md {
+    display: none;
+
+    @media only screen and (max-width: 500px) {
+      display: flex;
+      padding: 0 10px 0;
+      width: 250px;
+      margin: 0 auto;
+    }
+  }
+}

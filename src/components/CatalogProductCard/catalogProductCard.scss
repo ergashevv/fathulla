@@ -1,0 +1,117 @@
+.product__item {
+  margin: 0;
+  padding: 0;
+
+  .catalog-card {
+    border-radius: 27px;
+    background: rgba(0, 0, 0, 0.50);
+    backdrop-filter: blur(12px);
+
+    @media only screen and (max-width: 500px) {
+      padding: 7px !important;
+      border-radius: 14px;
+      margin: 0 3px;
+    }
+
+    .card-img {
+      position: relative;
+      height: 383px;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+
+      .main-img {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+      }
+
+      .card-korzino {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        padding: 13px;
+        margin: 11px 0 0 7px;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 3;
+        border-radius: 50%;
+        overflow: hidden;
+
+        transition: all ease-in-out .2s;
+
+        @media only screen and (max-width: 500px) {
+          width: 30px;
+          height: 30px;
+          padding: 8px;
+          margin: 5px 0 0 3px;
+          border-radius: 50%;
+        }
+      }
+
+      .card-korzino:hover {
+        background: linear-gradient(210deg, #d5a251 0%, black 98%);
+      }
+    }
+
+    h3 {
+      @media only screen and (max-width: 500px) {
+        font-size: 12px;
+        margin-top: 15px;
+        margin-bottom: 0;
+      }
+    }
+
+    .card-button {
+      border-radius: 24px;
+      border: 0.977px solid #FFF;
+      background: radial-gradient(107.32% 141.42% at 0% 0%, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 100%);
+      box-shadow: -2px -2px 122px 0px rgba(255, 255, 255, 0.02) inset;
+      backdrop-filter: blur(10px);
+      width: 100%;
+      max-width: 150px;
+      height: 35px;
+      position: relative;
+      margin: 18px auto;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+
+      @media only screen and (max-width: 500px) {
+        margin: 10px auto;
+      }
+
+      span {
+        font-family: Montserrat;
+        font-size: 15px;
+        font-weight: 400;
+        background: transparent;
+        color: #ffffff;
+        padding: 0;
+        box-shadow: none;
+        border: none !important;
+        margin-left: auto;
+      }
+
+      span:focus,
+      span:focus-visible {
+        background-color: transparent;
+        border: none;
+      }
+
+      img {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url("../../images/footer-arrow-backgound.png");
+        width: max-content;
+        height: auto;
+        margin-left: auto;
+        border-radius: 19.256px;
+        width: 30px;
+        height: 100%;
+      }
+    }
+  }
+}

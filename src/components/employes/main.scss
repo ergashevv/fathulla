@@ -1,0 +1,42 @@
+.employes-cards {
+    gap: 80px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @media only screen and (max-width: 500px) {
+        margin-top: 20px;
+    }
+
+    .employes-card {
+        @media only screen and (max-width: 500px) {
+            margin: 0 auto;
+        }
+
+        width: 315px;
+        height: 385px;
+        margin-bottom: 30px;
+
+        img {
+            border-radius: 20px;
+        }
+
+        p {
+            font-size: 21px;
+            margin-top: 10px;
+            text-align: center;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        .last {
+            font-size: 21px;
+            margin-top: 0 !important;
+            text-align: center;
+            color: white;
+            font-weight: 600;
+        }
+
+    }
+}
