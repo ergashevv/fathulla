@@ -62,12 +62,14 @@ const CategoryDetail = () => {
   ];
 
   const flickityOptions = {
-    initialIndex: 1,
+    initialIndex: 0,
     wrapAround: true,
-    autoPlay: 3000,
+    autoPlay: 4000,
     pauseAutoPlayOnHover: true,
     pageDots: true,
     prevNextButtons: true,
+    selectedAttraction: 0.025,
+    friction: 0.28,
   };
 
   const fetchData = async () => {
@@ -128,7 +130,6 @@ const CategoryDetail = () => {
                 options={flickityOptions}
                 disableImagesLoaded={false}
                 reloadOnUpdate
-                static
               >
                 {carouselImages.map((image, index) => (
                   <div key={index} className="carousel-cell category-carousel-cell">
