@@ -4,7 +4,7 @@ import ApplicationModal from '../modals/applicationModal/ApplicationModal';
 import './application.scss';
 import { useTranslation } from 'react-i18next';
 
-const Application = () => {
+const Application = ({ companyName = 'NOBEL TRADE' }) => {
   const [applicationModalActive, setApplicationModal] = useState(false);
   const { t } = useTranslation();
   const openModal = () => {
@@ -28,7 +28,7 @@ const Application = () => {
             {t('settings.req')} <img src={arrow} alt="" />
           </button>
         </div>
-        <p className="main-text">NOBEL TRADE</p>
+        <p className="main-text">{companyName}</p>
         <button className="button-md btn open-btn" onClick={() => openModal()}>
           {t('settings.req')} <img src={arrow} alt="" />
         </button>

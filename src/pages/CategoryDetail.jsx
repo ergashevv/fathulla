@@ -291,7 +291,7 @@ const CategoryDetail = () => {
         </div>
 
         <div className="category-application pt-3">
-          <Application />
+          <Application companyName="NOBEL GROUP" />
         </div>
 
         <Footer />
