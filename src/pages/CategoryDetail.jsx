@@ -131,7 +131,7 @@ const CategoryDetail = () => {
                 static
               >
                 {carouselImages.map((image, index) => (
-                  <div key={index} className="carousel-item-wrapper">
+                  <div key={index} className="carousel-cell category-carousel-cell">
                     <img 
                       className="carousel-image" 
                       src={image.imgPath} 
